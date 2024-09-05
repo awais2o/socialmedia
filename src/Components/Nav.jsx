@@ -1,4 +1,4 @@
-import { ChevronDown, Info, Moon, Sun } from 'lucide-react'
+import { Bell, ChevronDown, Info, Moon, Sun } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleDarkMode } from '../utils/theme'
@@ -91,21 +91,29 @@ const Nav = () => {
               />
             )}
           </div>
-          {!user?.uid ? (
-            <div
+          <div className='flex items-center space-x-2'>
+            <Bell
+              className='hover-transition'
               onClick={() => {
-                handleGoogleSignIn(dispatch)
-                // handleFacebookLogin()
+                navigate('/notification')
               }}
-              className=' hover-transition hover:font-bold py-2 px-4 rounded-3xl hover:cursor-pointer
+            />
+            {!user?.uid ? (
+              <>
+                <div
+                  onClick={() => {
+                    handleGoogleSignIn(dispatch)
+                    // handleFacebookLogin()
+                  }}
+                  className=' hover-transition hover:font-bold py-2 px-4 rounded-3xl hover:cursor-pointer
 '
-            >
-              Login
-            </div>
-          ) : (
-            <>
-              <div className='flex items-center space-x-2'>
-                <p>{user.displayName}</p>
+                >
+                  Login
+                </div>
+              </>
+            ) : (
+              <>
+                <p className='hidden md:block'>{user.displayName}</p>
                 <img
                   onClick={() => {
                     setLogoutDisplay(true)
@@ -115,9 +123,9 @@ const Nav = () => {
                   className='w-10 h-10 rounded-full border-2 border-gray-300 hover:cursor-pointer'
                 />
                 <ChevronDown className='w-5 h-5' />
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
       </nav>
       <div
