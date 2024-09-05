@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-gray-100 w-screen h-screen
+}
+
+html.dark {
+  @apply bg-gray-950 text-white
+}
+
+/* In your CSS file (e.g., App.css) */
+html, body {
+  overflow-x: hidden;
+}
+
+
+
+/* In your global CSS file */
+/* html {
+  scrollbar-width: none;
+ } */
+
+body {
+  overflow-y: scroll;
+  /* Ensure vertical scrolling is enabled */
+}
+
+
+
+.hover-transition {
+  @apply transform transition-transform duration-500 ease-in-out hover:scale-110
+}
