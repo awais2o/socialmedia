@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 import { getMessaging } from 'firebase/messaging'
 import { getStorage } from 'firebase/storage'
+import { getFirestore } from 'firebase/firestore' // Import Firestore
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,12 +14,15 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 }
 
+// Initialize Firebase App
 const app = initializeApp(firebaseConfig)
 
+// Initialize Firebase Services
 export const auth = getAuth(app)
 export const googleProvider = new GoogleAuthProvider()
 export const storage = getStorage(app)
 export const messaging = getMessaging(app)
+export const firestore = getFirestore(app)
 
 googleProvider.setCustomParameters({
   prompt: 'select_account'

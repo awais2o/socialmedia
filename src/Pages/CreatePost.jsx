@@ -5,6 +5,7 @@ import { CircleArrowLeft, ConstructionIcon } from 'lucide-react'
 import MediaUploader from '../Components/MediaUploader' // Import the new component
 import { useSelector } from 'react-redux'
 import { useCreatePostMutation } from '../redux/GlobalApi'
+import toast from 'react-hot-toast'
 
 const CreatePost = () => {
   const navigate = useNavigate()
@@ -67,9 +68,11 @@ const CreatePost = () => {
             placeholder='Write your caption...'
           />
           <div
-            className='w-fit px-3 py-2 mt-2 bg-blue-600 bg-opacity-40 hover:bg-opacity-80 hover:cursor-pointer  rounded'
+            className={`w-fit px-3 py-2 mt-2 bg-blue-600 bg-opacity-40 ${
+              imageUrl && `hover:bg-opacity-80`
+            } hover:cursor-pointer  rounded `}
             onClick={() => {
-              doPost(post)
+              imageUrl ? doPost(post) : toast("Can't Post without Media")
             }}
           >
             Post

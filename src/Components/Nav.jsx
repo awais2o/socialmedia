@@ -56,7 +56,7 @@ const Nav = () => {
   return (
     <>
       <nav
-        className={`flex items-center justify-between w-full px-3 py-2 transition-all duration-300 dark:text-white  border-b transform ease-in-out duration-1000 translate-y-1  ${
+        className={`flex items-center justify-between w-full px-3 py-2 transition-all duration-300 dark:text-white  border-b transform ease-in-out duration-1000 translate-y-1 mb-3  ${
           isScrolled
             ? 'fixed top-0 left-0 d bg-gray-100 dark:bg-gray-950   transform ease-in-out duration-1000 translate-y-0 drop-shadow-lg dark:shadow-white  dark:shadow-sm'
             : 'bg-inherit'
@@ -128,7 +128,7 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      <div
+      {/* <div
         className='mt-4 flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-600 bg-opacity-10 dark:bg-gray-800 dark:text-blue-400'
         role='alert'
       >
@@ -138,7 +138,7 @@ const Nav = () => {
           <span className='font-medium ml-2'>Info alert!</span> Change a few
           things up and try submitting again.
         </div>
-      </div>
+      </div> */}
 
       {logoutDisplay && (
         <LogoutConfirm

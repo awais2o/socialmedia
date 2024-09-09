@@ -6,6 +6,7 @@ import NotificaionPage from './Pages/NotificaionPage'
 import { onMessage } from 'firebase/messaging'
 import { messaging } from './config/firebase'
 import { useEffect } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 function App () {
   useEffect(() => {
@@ -29,6 +30,8 @@ function App () {
           <Route path='/notification' element={<NotificaionPage />} />
         </Routes>
       </Router>
+
+      <Toaster position='top-center' reverseOrder={false} />
     </>
   )
 }
