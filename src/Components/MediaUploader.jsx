@@ -70,6 +70,7 @@ const MediaUploader = ({ onImageUpload }) => {
           id='dropzone-file'
           type='file'
           className='hidden'
+          accept='image/*'
           onChange={handleImageChange}
           ref={fileInputRef}
         />
