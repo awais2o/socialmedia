@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import FullScreenImage from './ImagewithFullScreen'
+import FullScreenImage from './FullScreenImage'
 
 const SinglePost = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true)
