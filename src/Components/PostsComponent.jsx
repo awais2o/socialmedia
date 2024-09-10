@@ -109,14 +109,16 @@ const PostsComponent = () => {
 
   return (
     <div className='md:w-2/3'>
-      {newPosts.map((post, index) => (
-        <SinglePost key={post.postId} post={post} />
-      ))}
-
-      {/* Display fetched posts */}
-      {posts.map(post => (
-        <SinglePost key={post.postId} post={post} />
-      ))}
+{[...newPosts, ...posts]
+  .reduce((acc, post) => {
+    if (!acc.some(existingPost => existingPost.postId === post.postId)) {
+      acc.push(post)
+    }
+    return acc
+  }, [])
+  .map(post => (
+    <SinglePost key={post.postId} post={post} />
+  ))}
 
       {loading && (
         <div

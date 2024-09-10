@@ -18,7 +18,8 @@ const CreatePost = () => {
     uid: user.uid,
     displayName: user.displayName,
     caption: '',
-    postURL: ''
+    postURL: '',
+    ProfilePhotoURL: user.photoURL
   })
   // Callback function to handle the uploaded image URL
   const handleImageUpload = url => {
