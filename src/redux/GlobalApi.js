@@ -70,8 +70,21 @@ export const GlobalApi = createApi({
     createPost: builder.mutation({
       query: post => createPostRequest('/api/posts', post),
       invalidatesTags: ['posts']
+    }),
+    handleLikes: builder.mutation({
+      query: body => createPostRequest('/api/posts/handlelikes', body),
+      invalidatesTags: ['posts']
+    }),
+    comment: builder.mutation({
+      query: body => createPostRequest('/api/posts/comment', body),
+      invalidatesTags: ['posts']
     })
+    // handlelikes
   })
 })
 
-export const { useCreatePostMutation } = GlobalApi
+export const {
+  useCreatePostMutation,
+  useHandleLikesMutation,
+  useCommentMutation
+} = GlobalApi
